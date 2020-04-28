@@ -1,0 +1,26 @@
+// MUTATIONS
+export const MUTATION_LOAD_ITEMS_START = 'MUTATION_LOAD_ITEMS_START';
+export const MUTATION_LOAD_ITEMS_SUCCESS = 'MUTATION_LOAD_ITEMS_SUCCESS';
+export const SOCKET_CHANGETODO = 'SOCKET_CHANGETODO';
+export const MUTATION_RESPONSE_ERROR = 'MUTATION_RESPONSE_ERROR';
+export const MUTATION_SET_SEARCH = 'MUTATION_SET_SEARCH';
+export const MUTATION_SET_STATUS = 'MUTATION_SET_STATUS';
+
+// ACTIONS
+export const SET_SEARCH = 'SET_SEARCH';
+export const SET_STATUS = 'SET_STATUS';
+export const LOAD_ITEMS = 'LOAD_ITEMS';
+export const ADD_ITEM = 'ADD_ITEM';
+export const DONE_ITEM = 'DONE_ITEM';
+export const REMOVE_ITEM = 'REMOVE_ITEM';
+
+// GETTERS
+export const SEARCH = 'SEARCH';
+export const STATUS = 'STATUS';
+export const ITEMS = 'ITEMS';
+export const LOADING = 'LOADING';
+export const ERROR = 'ERROR';
+export const DONE_COUNT = 'DONE_COUNT';
+export const TODO_COUNT = 'TODO_COUNT';
+
+
