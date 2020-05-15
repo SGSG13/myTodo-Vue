@@ -1,6 +1,5 @@
 import * as types from '../types'
 import axios from 'axios'
-import { normalizedData } from '../../shared/utils'
 
 const state = {
   items: [],
@@ -17,7 +16,7 @@ const mutations = {
     state.loading = false;
   },
   [types.SOCKET_CHANGETODO]: (state, payload) => {
-    state.items = normalizedData(payload.items)
+    state.items = payload.items
   }
 };
 
@@ -25,15 +24,15 @@ const actions = {
   [types.LOAD_ITEMS]: async ({ commit }) => {
     commit(types.MUTATION_LOAD_ITEMS_START);
     try {
-      const { data } = await axios.get('api/get');
-      commit(types.MUTATION_LOAD_ITEMS_SUCCESS, normalizedData(data.items));
+      const { data } = await axios.get('api/todos');
+      commit(types.MUTATION_LOAD_ITEMS_SUCCESS, data.items);
     } catch (error) {
       commit(types.MUTATION_RESPONSE_ERROR, error);
     }
   },
   [types.ADD_ITEM]: async ({ commit }, title) => {
     try {
-      axios.post('/api/add', { title });
+      axios.post('/api/todo', { title });
     }
     catch (error) {
       commit(types.MUTATION_RESPONSE_ERROR, error);
@@ -41,7 +40,7 @@ const actions = {
   },
   [types.DONE_ITEM]: async ({ commit }, id) => {
     try {
-      axios.post('/api/done', { id });
+      axios.put(`/api/todo/${id}`);
     }
     catch (error) {
       commit(types.MUTATION_RESPONSE_ERROR, error);
@@ -49,7 +48,7 @@ const actions = {
   },
   [types.REMOVE_ITEM]: async ({ commit }, id) => {
     try {
-      axios.post('/api/remove', { id });
+      axios.delete(`/api/todo/${id}`);
     }
     catch (error) {
       commit(types.MUTATION_RESPONSE_ERROR, error);

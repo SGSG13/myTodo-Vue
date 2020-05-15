@@ -29,7 +29,7 @@
 <style lang="scss">
   .input {
     width: 100%;
-    height: 50.4px;
+    height: 50px;
     border: none;
     outline: none;
     padding-left: 15px;

@@ -1,14 +1,3 @@
-export function normalizedData(items) {
-  if (!items || items.length < 1) return [];
-  return items.reverse().map(item => {
-    return {
-      id: item._id,
-      title: item.title,
-      done: item.done
-    };
-  })
-}
-
 export function filterItems (arr, status, search) {
   function filterItemsByStatus(items, status) {
     if (items.length < 1) return items;
