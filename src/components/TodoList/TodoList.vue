@@ -1,30 +1,31 @@
 <template>
   <div>
     <app-loader v-if="isLoading"></app-loader>
-    <div
-      v-else
-      class="todo-list"
-      :class="{ 'todo-list_empty': items.length === 0 && !isLoading}"
-    >
+    <div v-else>
       <div
-        class="text-center"
-        v-if="items.length === 0 && !isLoading && !error"
-      >
-        List is empty :(
-      </div>
-      <div
-        class="text-center"
-        v-if="!!error"
+              class="text-center"
+              v-if="!!error"
       >
         {{ error }}
       </div>
-      <ul>
-        <app-todo-item
-          v-for="item in filteredItems"
-          :item="item"
-          :key="item.id"
-        ></app-todo-item>
-      </ul>
+      <div
+              class="todo-list"
+              :class="{ 'todo-list_empty': items.length === 0 && !isLoading}"
+      >
+        <div
+                class="text-center"
+                v-if="items.length === 0 && !isLoading && !error"
+        >
+          List is empty :(
+        </div>
+        <ul>
+          <app-todo-item
+                  v-for="item in filteredItems"
+                  :item="item"
+                  :key="item.id"
+          ></app-todo-item>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
